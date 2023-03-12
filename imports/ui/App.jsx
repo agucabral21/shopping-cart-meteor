@@ -1,9 +1,10 @@
-import React from "react";
-import { Hello } from "./Hello.jsx";
+import React, { useState } from "react";
+import ProductGrid from "./ProductGrid";
 
-export const App = () => (
-  <div>
-    <h1>Shopping Cart</h1>
-    <Hello />
-  </div>
-);
+export const App = () => {
+  return (
+    <div>
+      <ProductGrid onProductClick={(product) => console.log(product)} />
+    </div>
+  );
+};

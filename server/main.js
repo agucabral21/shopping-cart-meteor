@@ -1,6 +1,7 @@
 import { Meteor } from "meteor/meteor";
 import products from "../imports/mocks/products";
 import { ProductsCollection } from "../imports/api/products/productsCollection";
+import "../imports/api/products/server/publications";
 
 async function insertProduct(product) {
   await ProductsCollection.insertAsync(product);

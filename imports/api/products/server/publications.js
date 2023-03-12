@@ -1,6 +1,6 @@
 import { Meteor } from "meteor/meteor";
-import { ProductsCollection } from "../products";
+import { ProductsCollection } from "../productsCollection";
 
-Meteor.publish("allProducts", function publishAllProducts() {
+Meteor.publish("products", function publishAllProducts() {
   return ProductsCollection.find();
 });

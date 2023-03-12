@@ -5,6 +5,7 @@ export default [
       "This is the description of the product, its a really detailed description that can help you to decide if you really like it.",
     price: 50,
     imageUrl: "https://i.ebayimg.com/images/g/u5sAAOSwpNtgrg0r/s-l500.png",
+    quantity: 3,
   },
   {
     name: "Product_2",
@@ -12,6 +13,7 @@ export default [
       "This is the description of the product, its a really detailed description that can help you to decide if you really like it.",
     price: 50,
     imageUrl: "https://i.ebayimg.com/images/g/ydwAAOSwFKVgrg0w/s-l500.png",
+    quantity: 3,
   },
   {
     name: "Product_3",
@@ -19,6 +21,7 @@ export default [
       "This is the description of the product, its a really detailed description that can help you to decide if you really like it.",
     price: 50,
     imageUrl: "https://i.ebayimg.com/images/g/UfwAAOSw~CNgrg00/s-l500.png",
+    quantity: 3,
   },
   {
     name: "Product_4",
@@ -26,6 +29,7 @@ export default [
       "This is the description of the product, its a really detailed description that can help you to decide if you really like it.",
     price: 50,
     imageUrl: "https://i.ebayimg.com/images/g/B1kAAOSwihBgrg04/s-l500.png",
+    quantity: 3,
   },
   {
     name: "Product_5",
@@ -33,6 +37,7 @@ export default [
       "This is the description of the product, its a really detailed description that can help you to decide if you really like it.",
     price: 50,
     imageUrl: "https://i.ebayimg.com/images/g/zj0AAOSwDkBgrg09/s-l500.png",
+    quantity: 3,
   },
   {
     name: "Product_6",
@@ -40,6 +45,7 @@ export default [
       "This is the description of the product, its a really detailed description that can help you to decide if you really like it.",
     price: 50,
     imageUrl: "https://i.ebayimg.com/images/g/tmoAAOSw-hBgrg1B/s-l500.png",
+    quantity: 3,
   },
   {
     name: "Product_7",
@@ -47,6 +53,7 @@ export default [
       "This is the description of the product, its a really detailed description that can help you to decide if you really like it.",
     price: 50,
     imageUrl: "https://i.ebayimg.com/images/g/J4MAAOSwysBgrg1F/s-l500.png",
+    quantity: 3,
   },
   {
     name: "Product_8",
@@ -54,6 +61,7 @@ export default [
       "This is the description of the product, its a really detailed description that can help you to decide if you really like it.",
     price: 50,
     imageUrl: "https://i.ebayimg.com/images/g/G1kAAOSwVzFgrg1K/s-l500.png",
+    quantity: 3,
   },
   {
     name: "Product_9",
@@ -61,6 +69,7 @@ export default [
       "This is the description of the product, its a really detailed description that can help you to decide if you really like it.",
     price: 50,
     imageUrl: "https://i.ebayimg.com/images/g/G1kAAOSwVzFgrg1K/s-l500.png",
+    quantity: 3,
   },
   {
     name: "Product_10",
@@ -68,6 +77,7 @@ export default [
       "This is the description of the product, its a really detailed description that can help you to decide if you really like it.",
     price: 50,
     imageUrl: "https://i.ebayimg.com/images/g/G1kAAOSwVzFgrg1K/s-l500.png",
+    quantity: 3,
   },
   {
     name: "Product_11",
@@ -75,6 +85,7 @@ export default [
       "This is the description of the product, its a really detailed description that can help you to decide if you really like it.",
     price: 50,
     imageUrl: "https://i.ebayimg.com/images/g/G1kAAOSwVzFgrg1K/s-l500.png",
+    quantity: 3,
   },
   {
     name: "Product_12",
@@ -82,6 +93,7 @@ export default [
       "This is the description of the product, its a really detailed description that can help you to decide if you really like it.",
     price: 50,
     imageUrl: "https://i.ebayimg.com/images/g/ydwAAOSwFKVgrg0w/s-l500.png",
+    quantity: 3,
   },
   {
     name: "Product_13",
@@ -89,6 +101,7 @@ export default [
       "This is the description of the product, its a really detailed description that can help you to decide if you really like it.",
     price: 50,
     imageUrl: "https://i.ebayimg.com/images/g/G1kAAOSwVzFgrg1K/s-l500.png",
+    quantity: 3,
   },
   {
     name: "Product_14",
@@ -96,5 +109,6 @@ export default [
       "This is the description of the product, its a really detailed description that can help you to decide if you really like it.",
     price: 50,
     imageUrl: "https://i.ebayimg.com/images/g/G1kAAOSwVzFgrg1K/s-l500.png",
+    quantity: 3,
   },
 ];
