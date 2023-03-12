@@ -12,6 +12,8 @@ const ProductOverview = ({ show, closeModal, product, addToCart }) => {
 
   const handleAddToCart = () => {
     console.log("Adding Product to Cart");
+    product.quantity = +quantity;
+    addToCart(product);
     closeModal();
   };
 
@@ -52,7 +54,6 @@ const ProductOverview = ({ show, closeModal, product, addToCart }) => {
               <p className="mt-4 font-bold text-lg">${product.price}</p>
               <div className="mt-4 flex items-center">
                 <label> {`Quantity (${product.stock} available)`} </label>
-                alt={product.name}
                 <input
                   type="number"
                   min="1"

@@ -5,7 +5,7 @@ import { useSubscribe, useFind } from "meteor/react-meteor-data";
 import { ProductsCollection } from "../api/products/productsCollection";
 import ProductOverview from "./ProductOverview";
 
-const ProductGrid = ({ onProductClick }) => {
+const ProductGrid = ({ onAddProduct }) => {
   const isLoading = useSubscribe("products");
   const products = useFind(() => ProductsCollection.find({}));
 
@@ -37,7 +37,7 @@ const ProductGrid = ({ onProductClick }) => {
         show={showProductOverview}
         product={selectedProduct}
         closeModal={closeProductOverview}
-        addToCart={() => ""}
+        addToCart={onAddProduct}
       />
     </div>
   );
