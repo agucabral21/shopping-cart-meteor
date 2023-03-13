@@ -4,6 +4,7 @@ import { ProductsCollection } from "../imports/api/products/productsCollection";
 import { CartsCollection } from "../imports/api/cart/cartsCollection";
 
 import "../imports/api/products/server/publications";
+import "../imports/api/products/productsMethods";
 import "../imports/api/cart/server/publications";
 import "../imports/api/cart/cartsMethods";
 

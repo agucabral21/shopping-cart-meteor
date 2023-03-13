@@ -36,7 +36,18 @@ export const ClientView = () => {
       if (error) {
         console.log(error);
       } else {
-        console.log(result);
+        Meteor.call(
+          "product.extract.stock",
+          product._id,
+          product.quantity,
+          (error, result) => {
+            if (error) {
+              console.log(error);
+            } else {
+              console.log(result);
+            }
+          }
+        );
       }
     });
   };
