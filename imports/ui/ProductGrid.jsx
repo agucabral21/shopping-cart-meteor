@@ -16,7 +16,7 @@ const ProductGrid = ({ onAddProduct }) => {
     setShowProductOverview(true);
     setSelectedProduct(product);
   };
-  const closeProductOverview = () => {
+  const onCloseProductOverview = () => {
     setShowProductOverview(false);
   };
 
@@ -40,7 +40,7 @@ const ProductGrid = ({ onAddProduct }) => {
       <ProductOverview
         show={showProductOverview}
         product={selectedProduct}
-        closeModal={closeProductOverview}
+        onCloseProductOverview={onCloseProductOverview}
         addToCart={onAddProduct}
       />
     </div>
