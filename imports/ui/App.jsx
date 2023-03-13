@@ -1,6 +1,6 @@
 import React from "react";
 import { ClientView } from "./ClientView";
-import "../../imports/api/cart/cartMethods";
+import "../api/cart/cartsMethods";
 
 export const App = () => {
   return (

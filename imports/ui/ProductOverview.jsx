@@ -11,7 +11,6 @@ const ProductOverview = ({ show, closeModal, product, addToCart }) => {
   };
 
   const handleAddToCart = () => {
-    console.log("Adding Product to Cart");
     product.quantity = +quantity;
     addToCart(product);
     closeModal();

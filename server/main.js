@@ -1,11 +1,11 @@
 import { Meteor } from "meteor/meteor";
 import products from "../imports/mocks/products";
 import { ProductsCollection } from "../imports/api/products/productsCollection";
-import { CartsCollection } from "../imports/api/cart/cartCollection";
+import { CartsCollection } from "../imports/api/cart/cartsCollection";
 
 import "../imports/api/products/server/publications";
 import "../imports/api/cart/server/publications";
-import "../imports/api/cart/cartMethods";
+import "../imports/api/cart/cartsMethods";
 
 async function insertProduct(product) {
   await ProductsCollection.insertAsync(product);

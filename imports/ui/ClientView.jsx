@@ -1,15 +1,27 @@
 import React, { useState } from "react";
+import { useSubscribe, useFind } from "meteor/react-meteor-data";
+import { CartsCollection } from "../api/cart/cartsCollection";
+
 import CartModal from "./CartModal";
 import Header from "./Header";
 import ProductGrid from "./ProductGrid";
 
 export const ClientView = () => {
+  const userId = 1;
+  const cartLoading = useSubscribe("userCart", userId);
+  const userCart = useFind(() => CartsCollection.find({ userId }));
   const [showCartModal, setShowCartModal] = useState(false);
-  const [cart, setCart] = useState({ products: [] });
 
-  const cartProductsCount = cart.products.reduce((accumulator, product) => {
-    return accumulator + product.quantity;
-  }, 0);
+  if (cartLoading()) {
+    return <span>Loading...</span>;
+  }
+
+  const cartProductsCount = userCart[0].products.reduce(
+    (accumulator, product) => {
+      return accumulator + product.quantity;
+    },
+    0
+  );
 
   const showCart = () => {
     setShowCartModal(true);
@@ -19,11 +31,16 @@ export const ClientView = () => {
   };
 
   const addProductToCart = (product) => {
-    setCart((prevCart) => {
-      const updatedProducts = [...prevCart.products, product];
-      return { ...prevCart, products: updatedProducts };
+    const userId = 1;
+    Meteor.call("cart.add.product", userId, product, (error, result) => {
+      if (error) {
+        console.log(error);
+      } else {
+        console.log(result);
+      }
     });
   };
+
   return (
     <div>
       <Header onCartClick={showCart} cartProductsCount={cartProductsCount} />
@@ -31,7 +48,7 @@ export const ClientView = () => {
       <CartModal
         open={showCartModal}
         closeModal={closeCart}
-        products={cart.products}
+        products={userCart[0].products}
       />
     </div>
   );

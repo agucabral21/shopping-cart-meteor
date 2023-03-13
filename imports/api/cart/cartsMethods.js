@@ -1,7 +1,6 @@
 import { Meteor } from "meteor/meteor";
 import { check } from "meteor/check";
-import { CartsCollection } from "./cartCollection";
-import { ProductsCollection } from "../products/productsCollection";
+import { CartsCollection } from "./cartsCollection";
 
 Meteor.methods({
   "cart.add.product"(userId, product) {
@@ -25,9 +24,5 @@ Meteor.methods({
     } else {
       CartsCollection.update(cart._id, { $push: { products: product } });
     }
-
-    ProductsCollection.update(product._id, {
-      $inc: { stock: -product.quantity },
-    });
   },
 });
