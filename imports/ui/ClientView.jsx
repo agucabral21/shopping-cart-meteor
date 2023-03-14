@@ -9,7 +9,7 @@ import ProductGrid from "./ProductGrid";
 export const ClientView = () => {
   const userId = 1;
   const cartLoading = useSubscribe("userCart", userId);
-  const userCart = useFind(() => CartsCollection.find({ userId }));
+  const userCart = useFind(() => CartsCollection.find());
   const [showCartModal, setShowCartModal] = useState(false);
 
   if (cartLoading()) {
