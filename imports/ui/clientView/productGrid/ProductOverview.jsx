@@ -16,9 +16,14 @@ const ProductOverview = ({
   };
 
   const handleAddToCart = () => {
-    product.quantity = +quantity;
-    addToCart(product);
-    closeProductOverview();
+    if (product.stock < quantity) {
+      alert("Not enough stock");
+      setQuantity(1);
+    } else {
+      product.quantity = +quantity;
+      addToCart(product);
+      closeProductOverview();
+    }
   };
 
   const closeProductOverview = () => {
@@ -71,7 +76,9 @@ const ProductOverview = ({
                     value={quantity}
                     onChange={handleQuantityChange}
                     className="w-16 px-2 py-1 border border-gray-400 rounded-md mx-2"
+                    readonly
                   />
+
                   <button
                     onClick={handleAddToCart}
                     className="bg-green-500 text-white px-4 py-2 rounded-md"

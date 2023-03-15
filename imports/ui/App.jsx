@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter } from "react-router-dom";
-import { Router } from "./Router";
+import { Router } from "./router/Router";
 
 import "../api/cart/cartsMethods";
 import "../api/products/productsMethods";

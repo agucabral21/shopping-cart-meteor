@@ -1,14 +1,31 @@
 import React, { useEffect, useState } from "react";
 import { Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
+import { useLoggedUser } from "meteor/quave:logged-user-react";
 
-export const CartModal = ({ open, closeModal, products }) => {
-  const subTotal = products.reduce((accumulator, product) => {
+export const CartModal = ({ open, closeModal, userCart }) => {
+  const subTotal = userCart.products.reduce((accumulator, product) => {
     return accumulator + product.price * product.quantity;
   }, 0);
 
   const checkout = () => {
     alert("Not implemented");
+  };
+
+  const removeProductFromCart = (product) => {
+    Meteor.call(
+      "cart.remove.product",
+      userCart.userId,
+      product._id,
+      product.quantity,
+      (error, result) => {
+        if (error) {
+          console.log(error);
+        } else {
+          console.log(result);
+        }
+      }
+    );
   };
 
   return (
@@ -77,7 +94,7 @@ export const CartModal = ({ open, closeModal, products }) => {
                             role="list"
                             className="-my-6 divide-y divide-gray-200"
                           >
-                            {products.map((product) => (
+                            {userCart.products.map((product) => (
                               <li key={product["_id"]} className="flex py-6">
                                 <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
                                   <img
@@ -110,6 +127,9 @@ export const CartModal = ({ open, closeModal, products }) => {
                                   <div className="flex flex-1 items-end justify-between text-sm">
                                     <div className="flex">
                                       <button
+                                        onClick={() =>
+                                          removeProductFromCart(product)
+                                        }
                                         type="button"
                                         className="font-medium text-indigo-600 hover:text-indigo-500"
                                       >

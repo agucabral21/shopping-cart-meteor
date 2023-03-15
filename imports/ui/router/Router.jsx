@@ -1,8 +1,8 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import { ClientView } from "./ClientView";
-import { Access } from "./Access";
-import { LoggedUserControl } from "./components/LoggedUserControl";
+import { ClientView } from "../clientView/ClientView";
+import { Access } from "../access/Access";
+import { LoggedUserControl } from "../common/LoggedUserControl";
 
 import { RoutePaths } from "./RoutePaths";
 

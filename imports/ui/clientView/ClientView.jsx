@@ -1,17 +1,17 @@
 import React, { useState } from "react";
 import { useLoggedUser } from "meteor/quave:logged-user-react";
 import { useSubscribe, useFind } from "meteor/react-meteor-data";
-import { CartsCollection } from "../api/cart/cartsCollection";
-import { Loading } from "./components/Loading";
-import { CartModal } from "./CartModal";
-import Header from "./Header";
-import ProductGrid from "./ProductGrid";
+import { CartsCollection } from "../../api/cart/cartsCollection";
+import { Loading } from "../common/Loading";
+import { CartModal } from "./cartModal/CartModal";
+import Header from "./header/Header";
+import ProductGrid from "./productGrid/ProductGrid";
 
 export const ClientView = () => {
   const { loggedUser } = useLoggedUser();
 
   const userId = loggedUser.emails[0].address;
-  console.log(userId);
+
   const cartLoading = useSubscribe("userCart", userId);
   const userCart = useFind(() => CartsCollection.find());
   const [showCartModal, setShowCartModal] = useState(false);
@@ -35,24 +35,19 @@ export const ClientView = () => {
   };
 
   const addProductToCart = (product) => {
-    Meteor.call("cart.add.product", userId, product, (error, result) => {
-      if (error) {
-        console.log(error);
-      } else {
-        Meteor.call(
-          "product.extract.stock",
-          product._id,
-          product.quantity,
-          (error, result) => {
-            if (error) {
-              console.log(error);
-            } else {
-              console.log(result);
-            }
-          }
-        );
+    Meteor.call(
+      "cart.add.product",
+      userId,
+      product._id,
+      product.quantity,
+      (error, result) => {
+        if (error) {
+          console.log(error);
+        } else {
+          console.log(result);
+        }
       }
-    });
+    );
   };
 
   return (
@@ -60,9 +55,9 @@ export const ClientView = () => {
       <Header onCartClick={showCart} cartProductsCount={cartProductsCount} />
       <ProductGrid onAddProduct={addProductToCart} />
       <CartModal
+        userCart={userCart[0]}
         open={showCartModal}
         closeModal={closeCart}
-        products={userCart[0].products}
       />
     </div>
   );

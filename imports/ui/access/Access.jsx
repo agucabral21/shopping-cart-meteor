@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Meteor } from "meteor/meteor";
 import { Accounts } from "meteor/accounts-base";
-import { RoutePaths } from "./RoutePaths";
+import { RoutePaths } from "../router/RoutePaths";
 import { useNavigate } from "react-router-dom";
-import { ErrorAlert } from "./components/ErrorAlert";
+import { ErrorAlert } from "../common/ErrorAlert";
 
 export const Access = () => {
   const navigate = useNavigate();
@@ -41,6 +41,10 @@ export const Access = () => {
       <header className="bg-gray-900 text-white py-4 px-8 flex justify-between items-center">
         <h1 className="text-xl font-bold">Shopping Cart</h1>
       </header>
+      <br />
+      <br />
+      <br />
+      <br />
       <div className="flex flex-col items-center">
         <h3 className="px-3 py-2 text-lg text-base font-medium">
           {isSignUp ? "Sign Up" : "Sign In"}
@@ -81,12 +85,6 @@ export const Access = () => {
             </div>
           </div>
           <div className="flex justify-center py-3">
-            <button
-              onClick={() => navigate(RoutePaths.CLIENT_VIEW)}
-              className="inline-flex  justify-center rounded-md border border-gray-300 py-2 px-4 text-sm font-medium text-black shadow-sm hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-offset-2"
-            >
-              Back to Home
-            </button>
             {isSignUp && (
               <button
                 onClick={signUp}
@@ -107,14 +105,14 @@ export const Access = () => {
             )}
           </div>
 
-          <div className="py-3">
+          <div className="flex justify-center py-3">
             <a
-              className="cursor-pointer text-indigo-800"
+              className="inline-flex  justify-center rounded-md border border-gray-300 py-2 px-4 text-sm font-medium text-black shadow-sm hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-offset-2"
               onClick={() => setIsSignUp(!isSignUp)}
             >
               {isSignUp
-                ? "If you already have an account, click here"
-                : "If you don't have account, click here"}
+                ? "I already have an account"
+                : "I want to create an account"}
             </a>
           </div>
         </form>

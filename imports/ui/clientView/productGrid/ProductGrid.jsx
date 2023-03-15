@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import ProductCard from "./ProductCard";
-import { Loading } from "./components/Loading";
+import { Loading } from "../../common/Loading";
 
 import { useSubscribe, useFind } from "meteor/react-meteor-data";
-import { ProductsCollection } from "../api/products/productsCollection";
+import { ProductsCollection } from "../../../api/products/productsCollection";
 import ProductOverview from "./ProductOverview";
 
 const ProductGrid = ({ onAddProduct }) => {
