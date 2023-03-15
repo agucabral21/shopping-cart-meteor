@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import ProductCard from "./ProductCard";
+import { Loading } from "./components/Loading";
 
 import { useSubscribe, useFind } from "meteor/react-meteor-data";
 import { ProductsCollection } from "../api/products/productsCollection";
@@ -21,7 +22,7 @@ const ProductGrid = ({ onAddProduct }) => {
   };
 
   if (isLoading()) {
-    return <span>Loading...</span>;
+    return <Loading />;
   }
 
   return (

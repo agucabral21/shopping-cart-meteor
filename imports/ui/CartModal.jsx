@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 
-export default function CartModal({ open, closeModal, products }) {
+export const CartModal = ({ open, closeModal, products }) => {
   const subTotal = products.reduce((accumulator, product) => {
     return accumulator + product.price * product.quantity;
   }, 0);
@@ -169,4 +169,4 @@ export default function CartModal({ open, closeModal, products }) {
       </Dialog>
     </Transition.Root>
   );
-}
+};

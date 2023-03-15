@@ -4,7 +4,6 @@ import { Meteor } from "meteor/meteor";
 
 export default Header = ({ cartProductsCount, onCartClick }) => {
   const { loggedUser, isLoadingLoggedUser } = useLoggedUser();
-  const [showUserName, setShowUserName] = useState(false);
 
   return (
     <header className="bg-gray-900 text-white py-4 px-8 flex justify-between items-center">

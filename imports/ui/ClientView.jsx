@@ -1,19 +1,23 @@
 import React, { useState } from "react";
+import { useLoggedUser } from "meteor/quave:logged-user-react";
 import { useSubscribe, useFind } from "meteor/react-meteor-data";
 import { CartsCollection } from "../api/cart/cartsCollection";
-
-import CartModal from "./CartModal";
+import { Loading } from "./components/Loading";
+import { CartModal } from "./CartModal";
 import Header from "./Header";
 import ProductGrid from "./ProductGrid";
 
 export const ClientView = () => {
-  const userId = 1;
+  const { loggedUser } = useLoggedUser();
+
+  const userId = loggedUser.emails[0].address;
+  console.log(userId);
   const cartLoading = useSubscribe("userCart", userId);
   const userCart = useFind(() => CartsCollection.find());
   const [showCartModal, setShowCartModal] = useState(false);
 
   if (cartLoading()) {
-    return <span>Loading...</span>;
+    return <Loading />;
   }
 
   const cartProductsCount = userCart[0].products.reduce(
@@ -31,7 +35,6 @@ export const ClientView = () => {
   };
 
   const addProductToCart = (product) => {
-    const userId = 1;
     Meteor.call("cart.add.product", userId, product, (error, result) => {
       if (error) {
         console.log(error);

@@ -4,7 +4,7 @@ import { CartsCollection } from "./cartsCollection";
 
 Meteor.methods({
   "cart.add.product"(userId, product) {
-    check(userId, Number);
+    check(userId, String);
     check(product, Object);
 
     // Get the user's cart or create it
