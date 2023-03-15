@@ -1,13 +1,14 @@
 import React from "react";
-import { ClientView } from "./ClientView";
-import "../api/cart/cartsMethods";
+import { BrowserRouter } from "react-router-dom";
+import { Router } from "./Router";
 
-import "../../imports/api/products/productsMethods";
+import "../api/cart/cartsMethods";
+import "../api/products/productsMethods";
 
 export const App = () => {
   return (
-    <div>
-      <ClientView />
-    </div>
+    <BrowserRouter>
+      <Router />
+    </BrowserRouter>
   );
 };
