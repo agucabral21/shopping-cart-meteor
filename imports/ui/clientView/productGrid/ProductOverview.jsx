@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment } from "react";
+import { FaTimes } from "react-icons/fa";
 
 const ProductOverview = ({
   show,
@@ -10,9 +11,17 @@ const ProductOverview = ({
 }) => {
   const [quantity, setQuantity] = useState(1);
 
-  const handleQuantityChange = (e) => {
-    const quantityDesired = e.target.value;
-    setQuantity(quantityDesired);
+  const handleIncrement = () => {
+    if (product.stock < quantity) {
+      alert("Not enough stock");
+      setQuantity(product.stock);
+    } else {
+      setQuantity((prevValue) => prevValue + 1);
+    }
+  };
+
+  const handleDecrement = () => {
+    if (quantity > 0) setQuantity((prevValue) => prevValue - 1);
   };
 
   const handleAddToCart = () => {
@@ -57,10 +66,10 @@ const ProductOverview = ({
                   className="w-full rounded-md mb-4"
                 />
                 <button
-                  className="absolute top-2 right-2 bg-gray-200 p-2 rounded-full"
+                  className="absolute top-2 right-2 bg-gray-200 p-1 "
                   onClick={closeProductOverview}
                 >
-                  Back
+                  <FaTimes> </FaTimes>
                 </button>
               </div>
               <h2 className="text-lg font-semibold">{product.name}</h2>
@@ -68,16 +77,27 @@ const ProductOverview = ({
               <p className="mt-4 font-bold text-lg">${product.price}</p>
               {product.stock > 0 ? (
                 <div className="mt-4 flex items-center">
-                  <label> {`Quantity (${product.stock} available)`} </label>
-                  <input
-                    type="number"
-                    min="1"
-                    max={product.stock}
-                    value={quantity}
-                    onChange={handleQuantityChange}
-                    className="w-16 px-2 py-1 border border-gray-400 rounded-md mx-2"
-                    readonly
-                  />
+                  <label> {`(${product.stock} available)`} </label>
+
+                  <div className="flex items-center justify-center mx-3">
+                    <button
+                      className="border border-gray-300 rounded-l px-2 py-1"
+                      onClick={handleDecrement}
+                    >
+                      -
+                    </button>
+                    <input
+                      className="border-t border-b border-gray-300 px-2 py-1 w-10 text-center"
+                      value={quantity}
+                      readOnly
+                    />
+                    <button
+                      className="border border-gray-300 rounded-r px-2 py-1"
+                      onClick={handleIncrement}
+                    >
+                      +
+                    </button>
+                  </div>
 
                   <button
                     onClick={handleAddToCart}
