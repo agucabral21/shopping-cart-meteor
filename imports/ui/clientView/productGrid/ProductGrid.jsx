@@ -7,11 +7,11 @@ import { ProductsCollection } from "../../../api/products/productsCollection";
 import ProductOverview from "./ProductOverview";
 
 const ProductGrid = ({ onAddProduct }) => {
-  const isLoading = useSubscribe("products");
-  const products = useFind(() => ProductsCollection.find({}));
-
   const [showProductOverview, setShowProductOverview] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(false);
+
+  const isLoading = useSubscribe("products");
+  const products = useFind(() => ProductsCollection.find({}));
 
   const openProductOverview = (product) => {
     setShowProductOverview(true);
