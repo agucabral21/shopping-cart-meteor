@@ -1,5 +1,5 @@
 ## Meteor Shopping Cart
-This is a simple shoppingCart made for a tech evaluation for Talking Points
+This is a simple shoppingCart made for a tech evaluation for Talking Points company
 
 -   I kept the "imports" directory.
 -   Based on the documentation, I added the "server" directory so that some files cannot be accessed from the client side.
